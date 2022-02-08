@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 		<h1> Caixa Eletrônico - Login</h1>
 
 		<!-- Form for Login -->
-			<form method="POST" class="log" action="">
+			<form method="POST" class="log" action="controller/LoginController.php">
 
 				<br><br><p>Entre na sua conta:</p><br>
 
@@ -55,3 +56,4 @@
 
 </body>
 </html>
+

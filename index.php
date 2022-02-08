@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+if(isset($_SESSION['login'])){
+
+
+
+?>
 <!-- Template by Marcos André -->
 
 <!DOCTYPE html>
@@ -137,3 +145,10 @@
 </html>
 
 <!-- Template by Marcos André -->
+
+ <?php
+
+}else{
+	header("Location: login.php?access_denied");
+}
+?>
