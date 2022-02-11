@@ -3,7 +3,7 @@
 
 session_start();
 
-if(isset($_session['login'])){
+if(isset($_SESSION['login'])){
 	
 include_once '../model/Conexao.class.php';
 include_once '../model/Contas.class.php';
@@ -11,6 +11,8 @@ include_once '../model/Contas.class.php';
 $contas=new Contas();
 
 $id=$_POST['id'];
+
+
 ?>
 
 <!-- Fim - PHP -->
@@ -67,13 +69,14 @@ $id=$_POST['id'];
 								</thead>
 								<tbody>
 									<?php foreach($contas->getInfo($id) as $account_info): ?>
+
 									<tr class="tr">
-										<td><?php echo $account['id'];?></td>
-										<td><?php echo $account['titular'];?></td>
-										<td><?php echo $account['agencia'];?></td>
-										<td><?php echo $account['conta'];?></td>
+										<td><?php echo $account_info['id'];?></td>
+										<td><?php echo $account_info['titular'];?></td>
+										<td><?php echo $account_info['agencia'];?></td>
+										<td><?php echo $account_info['conta'];?></td>
 										<td style="text-align: center;">
-											<?php echo $account['saldo'];?>
+											<?php echo $account_info['saldo'];?>
 										</td>
 
 										<!-- Botões de Ações -->
@@ -175,17 +178,21 @@ $id=$_POST['id'];
 										</tr>
 									</thead>
 									<tbody style="text-align: center;">
-										
+										<?php foreach($contas->listHistoric($id) as $historic):?>
 										<tr>
-											<td></td>
-											
-											<td style="color: green;">
-												
+											<td>
+												<?php echo date("d/m/y h:m:s", strtotime($historic['data_operacao']));	?>
 											</td>
 											
-											<td></td>
+											<td style="color: green;">
+												<?php echo $historic['valor'];?>
+											</td>
+											
+											<td>
+											<?php echo $historic['tipo'];?>
+											</td>
 										</tr>
-										
+										<?php endforeach;?>
 									</tbody>
 								</table>
 

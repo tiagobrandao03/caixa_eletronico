@@ -112,7 +112,7 @@ $contas = new Contas();
 						<form method="POST" action="view/add_transacao.php">
 
 							<!-- Botão para Transação -->
-						     <input type="hidden" name="id" value="<?=$account['id'] ?>">
+						     <input type="hidden" name="id" value="<?=$account['id']?>">
 							<button class="btn btn-warning btn-xs">
 								<i class="fa fa-dollar-sign"></i>
 							</button>
@@ -150,7 +150,7 @@ $contas = new Contas();
 <!-- Template by Marcos André -->
 
  <?php
-
+ 
 }else{
 	header("Location: login.php?access_denied");
 }
